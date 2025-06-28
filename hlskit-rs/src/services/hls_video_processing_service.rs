@@ -105,7 +105,7 @@ async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
         command[4].clone(),
         command[5].clone(),
         "h264_nvenc".to_string(),
-        "-rc:v vbr_hq".to_string(), 
+        "-rc:v vbr_hq".to_string(),
         "-cq:v 19 -b:v 5M -maxrate:v 8M -bufsize:v 10M -c:a aac -b:a 128k".to_string(),
         command[6].clone(),
         command[7].clone(),
@@ -118,9 +118,10 @@ async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
         command[14].clone(),
         command[15].clone(),
         command[16].clone(),
-        
+
     ];
     println!("{:?}", vec_command);
+    let command = vec_command.as_slice();
     let process = Command::new(&command[0])
         .args(&command[1..])
         .stdin(Stdio::piped())
