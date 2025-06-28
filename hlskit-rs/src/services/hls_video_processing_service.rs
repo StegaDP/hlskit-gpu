@@ -112,7 +112,6 @@ async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
         "-bufsize".to_string(), "15M".to_string(),
         "-c:a".to_string(), "aac".to_string(),
         "-b:a".to_string(), "192k".to_string(),
-        command[6].clone(),
         command[7].clone(),
         command[8].clone(),
         command[9].clone(),
@@ -123,7 +122,7 @@ async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
         command[14].clone(),
         command[15].clone(),
         command[16].clone(),
-
+        command[17].clone(),
     ];
     println!("{:?}", vec_command);
     let command = vec_command.as_slice();
