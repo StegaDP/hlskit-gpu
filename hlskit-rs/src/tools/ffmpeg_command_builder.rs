@@ -91,7 +91,7 @@ impl FfmpegCommand {
         args.push(self.input_path.to_str().unwrap_or_default().to_string());
 
         args.push("-vf".to_string());
-        args.push(format!("scale={}x{}", self.width, self.height));
+        args.push(format!("scale={}:{}", self.width, self.height));
 
         args.push("-c:v".to_string());
         args.push("libx264".to_string());
