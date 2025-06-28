@@ -97,6 +97,7 @@ fn build_ffmpeg_command(
 }
 
 async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
+    println!("{:?}", command);
     let process = Command::new(&command[0])
         .args(&command[1..])
         .stdin(Stdio::piped())
