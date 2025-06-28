@@ -105,8 +105,13 @@ async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
         command[4].clone(),
         command[5].clone(),
         "h264_nvenc".to_string(),
-        "-rc:v vbr_hq".to_string(),
-        "-cq:v 19 -b:v 5M -maxrate:v 8M -bufsize:v 10M -c:a aac -b:a 128k".to_string(),
+        "-rc vbr \
+  -cq 19 \
+  -b:v 8M \
+  -maxrate 10M \
+  -bufsize 15M \
+  -c:a aac \
+  -b:a 192k".to_string(),
         command[6].clone(),
         command[7].clone(),
         command[8].clone(),
