@@ -97,7 +97,30 @@ fn build_ffmpeg_command(
 }
 
 async fn run_ffmpeg_command(command: &[String]) -> Result<(), HlsKitError> {
-    println!("{:?}", command);
+    let vec_command = vec![
+        command[0].clone(),
+        command[1].clone(),
+        command[2].clone(),
+        command[3].clone(),
+        command[4].clone(),
+        command[5].clone(),
+        "h264_nvenc".to_string(),
+        "-rc:v vbr_hq".to_string(), 
+        "-cq:v 19 -b:v 5M -maxrate:v 8M -bufsize:v 10M -c:a aac -b:a 128k".to_string(),
+        command[6].clone(),
+        command[7].clone(),
+        command[8].clone(),
+        command[9].clone(),
+        command[10].clone(),
+        command[11].clone(),
+        command[12].clone(),
+        command[13].clone(),
+        command[14].clone(),
+        command[15].clone(),
+        command[16].clone(),
+        
+    ];
+    println!("{:?}", vec_command);
     let process = Command::new(&command[0])
         .args(&command[1..])
         .stdin(Stdio::piped())
